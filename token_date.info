@@ -1,0 +1,5 @@
+name           = Token Date
+description    = Add custom token for this and next Year
+core           = 7.x
+package        = Token
+dependencies[] = token

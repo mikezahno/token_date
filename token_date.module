@@ -8,19 +8,19 @@
  * @return array
  *   An associative array of available tokens and token types.
  */
-function ias_datetoken_token_info() {
+function token_date_token_info() {
   $info = array();
   // Define a new token type.
-  $info['types']['ias_custom_tokens'] = array(
-    'name' => t('IAS custom tokens'),
+  $info['types']['custom_token_date'] = array(
+    'name' => t('Custom Date tokens'),
     'description' => t('A token type for my custom tokens.'),
   );
   // Define any new tokens.
-  $info['tokens']['ias_custom_tokens']['current_year'] = array(
+  $info['tokens']['custom_token_date']['current_year'] = array(
     'name' => t('Current Year'),
     'description' => t('Inser current Year (@demo_year)', array('@demo_year'=>date('Y'))),
   );
-  $info['tokens']['ias_custom_tokens']['next_year'] = array(
+  $info['tokens']['custom_token_date']['next_year'] = array(
     'name' => t('Next Year'),
     'description' => t('Insert next Year (@demo_next_year)', array('@demo_next_year' => date('Y', strtotime('+1 year')))),
   );
@@ -54,10 +54,10 @@ function ias_datetoken_token_info() {
 /**
  * Implements hook_tokens(). This hook will operate the token and replace it with it's value.
  */
-function ias_datetoken_tokens($type, $tokens, array $data = array(), array $options = array()) {
+function token_date_tokens($type, $tokens, array $data = array(), array $options = array()) {
   $replacements = array();
   $sanitize = !empty($options['sanitize']);
-  if ($type == 'ias_custom_tokens') {
+  if ($type == 'custom_token_date') {
     // Loop through the available tokens.
     foreach ($tokens as $name => $original) {
       // Find our custom tokens by name.

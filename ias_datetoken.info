@@ -1,0 +1,5 @@
+name           = IAS Date Token
+description    = Add custom token for next Year
+core           = 7.x
+package        = IAS
+dependencies[] = token
